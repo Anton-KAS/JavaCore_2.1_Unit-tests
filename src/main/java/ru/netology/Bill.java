@@ -1,7 +1,6 @@
 package ru.netology;
 
 import ru.netology.taxType.TaxType;
-import ru.netology.taxType.TaxType;
 
 import java.math.BigDecimal;
 
@@ -16,9 +15,10 @@ public class Bill {
         this.taxService = taxService;
     }
 
-    public void payTaxes() {
+    public BigDecimal payTaxes() {
         // TODO вместо 0.0 посчитать размер налога исходя из TaxType
         BigDecimal taxAmount = taxType.calculateTaxFor(amount);
-        taxService.payOut(taxAmount);
+        BigDecimal result = taxService.payOut(taxAmount);
+        return result;
     }
 }
